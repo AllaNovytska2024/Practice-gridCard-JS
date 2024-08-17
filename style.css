@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .arrow {
+    font-size: 40px;
+  }
+  
+  html {
+    /* корневой размер шрифта */
+    font-size: 15px;
+  }
+  
+  body {
+    /* чтобы приклеить footer к низу задаем всей страница flex с вертикальным ориентированием */
+    display: flex;
+    flex-direction: column;
+    /* минимальный размер видимой области будет 100vh */
+    min-height: 100vh;
+    margin: 0;
+    /* подключение шрифта к странице */
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+  }
+  
+  header {
+    /* приклеиваем header */
+    position: sticky;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    padding: 8px 15px;
+    background-color: #2b5e35;
+    color: white;
+  }
+  
+  nav>a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  nav>span {
+    cursor: pointer;
+    font-size: 1.7rem;
+  }
+  
+  nav>a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    padding: 8px 15px;
+    /* за счет этого свойства main занимает все свободное пространство на странице, между header и footer даже если контента мало */
+    flex: 1;
+  }
+  
+  h1 {
+    font-size: 1.2rem;
+  }
+  
+  h3 {
+    margin: 0;
+  }
+  
+  p {
+    font-size: 0.9rem;
+  }
+  
+  .grid-gallery {
+    display: grid;
+    /* адаптивная галерея с переносом резиновых карточек на следующие строки */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 400px;
+    gap: 5px;
+  }
+  
+  .grid-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: #e9eae9;
+    padding: 18px;
+  }
+  
+  /* этот контейнере - рамка / обертка для картинок  */
+  /* ей задан жесткий размер под который будет обрезаться любая картинка */
+  .img-wrapper {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .img-wrapper>img {
+    /* за счет этих свойств картинка растягивается равномерно по размеру контейнера-родителя */
+    object-fit: cover;
+    /* приоритет top по вертикали  */
+    /* центр по горизонтали */
+    object-position: top center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    padding: 8px;
+    background-color: #585860;
+    color: white;
+    font-size: 0.8rem;
+  }
+  
+  .burger-menu {
+    /* это свойство прячет элемент но оставляет его в потоке */
+    /* visibility: hidden; */
+    /* этим свойство мы прячем элемент и он исчезает из верстки */
+    display: none;
+  }
+  
+  .btn-container {
+    margin-bottom: 15px;
+  }
+  
+  .btn-magic {
+    background-color: rgb(255, 215, 255);
+  }
+  
+  .btn-del {
+    background-color: rgb(53, 53, 53);
+    color: white;
+  }
+  
+  .btn-container > button {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+  }
+  
+  /* c помощью media queries можно указать css свойства которы будут срабатывать для устройств разной ширины */
+  
+  @media (max-width: 740px) {
+    /* header {
+      background-color: rgb(189, 68, 68);
+    } */
+  
+    nav>a {
+      /* прячем все ссылки из меню */
+      display: none;
+    }
+  
+    .burger-menu {
+      /* показываем иконку складного меню */
+      display: block;
+    }
+  }
+  
+  @media (max-width: 634px) {
+    .grid-gallery {
+      grid-auto-rows: 500px;
+    }
+  
+    .img-wrapper {
+      width: 100%;
+      height: 300px;
+    }
+  }
+  
+  /* 634px */
+  
